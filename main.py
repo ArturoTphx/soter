@@ -60,12 +60,22 @@ def main(site: str, is_verbose: bool, is_save: bool):
 
 parser = ArgumentParser(description="Soter")
 parser.add_argument(
-    "-s", "--site", type=str, help="site for the request (google|bing|youtube)"
+    "-s",
+    "--site",
+    type=str,
+    help="site for the request (google|bing|youtube)",
+    required=True,
 )
 group = parser.add_argument_group()
-group.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
 group.add_argument(
-    "-f", "--save", action="store_true", help="save response in file mode"
+    "-v", "--verbose", action="store_true", help="verbose mode", default=True
+)
+group.add_argument(
+    "-f",
+    "--save",
+    action="store_true",
+    help="save response in file mode",
+    default=False,
 )
 args = parser.parse_args()
 
